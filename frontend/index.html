@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inventario - Admin</title>
+  <style>
+    :root{--sidebar:#0e2a3d;--header:#0b6b78}
+    body{font-family: 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:#071018;color:#fff}
+    .app{display:flex;height:100vh}
+    .sidebar{width:260px;background:var(--sidebar);padding:18px 16px;box-sizing:border-box}
+    .profile{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .avatar{width:48px;height:48px;border-radius:50%;background:#fff}
+    .username{font-size:18px}
+    .menu{margin-top:8px}
+    .menu .item{padding:10px;border-radius:8px;cursor:pointer;color:#cfe7ee}
+    .menu .item:hover{background:#133844}
+    .menu .item.active{background:#174f5a;color:#fff}
+    .table-list{margin-top:14px}
+    .table-item{padding:8px 10px;border-radius:6px;cursor:pointer;margin-bottom:6px;background:transparent;color:#cfe7ee}
+    .table-item:hover{background:#133844}
+    .table-item.active{background:#174f5a}
+
+    .main{flex:1;padding:18px;box-sizing:border-box;overflow:auto}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+    .table-wrap{background:#08121a;padding:12px;border-radius:6px}
+    table{width:100%;border-collapse:separate;border-spacing:0 14px}
+    th,td{padding:14px 12px;text-align:left;color:#fff}
+    thead th{background:var(--header);color:#ffb84d;font-weight:800;padding:12px;border-radius:4px}
+
+    tbody tr{background:#07131a}
+    tbody tr td{border-bottom:none}
+
+    .thumb{width:64px;height:64px;border-radius:50%;object-fit:cover;border:4px solid #08121a}
+
+    .btn{border:none;padding:8px 14px;border-radius:8px;color:#fff;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,0.12)}
+    .btn.details{background:#ff8a50}
+    .btn.edit{background:#ff5bb5}
+    .btn.delete{background:#ffb841;color:#2b2b2b}
+    .actions .btn{margin-right:8px}
+
+    @media(max-width:800px){.sidebar{display:none}.main{padding:8px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="avatar"></div>
+        <div>
+          <div class="username">Juan Manuel Herrera</div>
+          <div style="font-size:12px;color:#9fc2c9">Administrador</div>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <div class="item" id="menu-list">List Categories</div>
+        <div class="item" id="menu-create">Create Category</div>
+      </nav>
+
+      <div style="margin-top:18px;color:#9fc2c9;font-size:13px">Tablas</div>
+      <div id="tables" class="table-list">Cargando...</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div><strong id="table-name">Seleccione una tabla</strong></div>
+        <div><button id="refresh" class="btn" style="background:#2b2b2b">Refrescar</button> <button id="create-row" class="btn" style="background:#2b2b2b">Crear fila</button></div>
+      </div>
+
+      <div id="table-area" class="table-wrap">Seleccione una tabla para ver datos</div>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
